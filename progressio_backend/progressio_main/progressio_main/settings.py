@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'enrollments',
     'submissions',
     'assignments',
-    'announcements'
+    'announcements',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -56,7 +59,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
 ROOT_URLCONF = 'progressio_main.urls'
 
 TEMPLATES = [
@@ -133,3 +143,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    # ...
+]
