@@ -1,0 +1,89 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
+    <form class="w-full max-w-md p-5 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">Create Instructor's Account</h1>
+      
+      <div class="mb-4">
+        <label for="floating_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name:</label>
+        <input
+          type="text"
+          name="floating_name"
+          id="floating_name"
+          class="form-input mt-1 block w-full px-3 py-2.5 text-gray-900 bg-transparent border-b-2 border-gray-300 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+          placeholder="E.g., John Doe"
+          required
+        />
+      </div>
+  
+      <div class="mb-4">
+        <label for="floating_gender" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Gender:</label>
+        <select
+          id="floating_gender"
+          name="floating_gender"
+          class="form-select mt-1 block w-full text-gray-900 bg-transparent border-b-2 border-gray-300 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+          required
+        >
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+  
+      <div class="mb-4">
+        <label for="floating_date_of_birth" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Date of Birth:</label>
+        <input
+          type="date"
+          name="floating_date_of_birth"
+          id="floating_date_of_birth"
+          class="form-input mt-1 block w-full px-3 py-2.5 text-gray-900 bg-transparent border-b-2 border-gray-300 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+          required
+        />
+      </div>
+  
+      <div class="mb-4">
+        <label for="floating_department" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Department:</label>
+        <select
+          id="floating_department"
+          name="floating_department"
+          class="form-select mt-1 block w-full text-gray-900 bg-transparent border-b-2 border-gray-300 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+          required
+        >
+          <option value="1">Department 1</option>
+          <option value="2">Department 2</option>
+          <option value="3">Department 3</option>
+          <option value="4">Department 4</option>
+        </select>
+      </div>
+  
+      <div class="mb-4">
+        <label for="floating_email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email:</label>
+        <input
+          type="email"
+          name="floating_email"
+          id="floating_email"
+          class="form-input mt-1 block w-full px-3 py-2.5 text-gray-900 bg-transparent border-b-2 border-gray-300 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+          placeholder="E.g., example@email.com"
+          required
+        />
+      </div>
+  
+      <div class="mb-6">
+        <label for="floating_contact_number" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Contact Number:</label>
+        <input
+          type="tel"
+          name="floating_contact_number"
+          id="floating_contact_number"
+          class="form-input mt-1 block w-full px-3 py-2.5 text-gray-900 bg-transparent border-b-2 border-gray-300 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+          placeholder="E.g., 123-456-7890"
+          required
+        />
+      </div>
+  
+      <button
+        type="submit"
+        class="w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-white font-medium rounded-lg py-2.5 text-sm transition duration-300 ease-in-out transform hover:scale-105"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+  

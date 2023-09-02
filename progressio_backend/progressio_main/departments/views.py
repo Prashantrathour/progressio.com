@@ -48,7 +48,7 @@ def create_department(request):
         try:
             # Extract department data from the request's POST data
             name = request.POST.get('name')
-
+            
             # Create the department
             department = Department(name=name)
             department.save()

@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'announcements',
     'rest_framework',
     'rest_framework.authtoken',
-    'user'
+    'user',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,37 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware'
+]
+CORS_ALLOWED_ORIGINS = [
+"https://domain.com",
+"https://api.domain.com",
+"http://localhost:8080",
+"http://127.0.0.1:8000",
+"http://localhost:4200"
+]
+CORS_ALLOWED_ORIGIN_REGEXES = [
+r"^https://\w+\.domain\.com$",
+]
+CORS_ALLOW_METHODS = [
+'DELETE',
+'GET',
+'OPTIONS',
+'PATCH',
+'POST',
+'PUT',
+]
+CORS_ALLOW_HEADERS = [
+'accept',
+'accept-encoding',
+'authorization',
+'content-type',
+'dnt',
+'origin',
+'user-agent',
+'x-csrftoken',
+'x-requested-with',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

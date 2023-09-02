@@ -1,0 +1,33 @@
+/* Component-specific CSS for the success message */
+.message.success {
+    display: flex;
+    align-items: center;
+    background-color: #4CAF50; /* Green background color for success */
+    color: #FFFFFF; /* White text color */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Component-specific CSS for the error message */
+.message.error {
+    display: flex;
+    align-items: center;
+    background-color: #FF5722; /* Red background color for error */
+    color: #FFFFFF; /* White text color */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message .icon {
+    margin-right: 10px;
+}
+
+/* Additional styles for the icon, adjust as needed */
+.message .icon svg {
+    fill: currentColor;
+}
+
+/* Additional styles for the message text, adjust as needed */
+.message-text {
+    font-size: 14px;
+}

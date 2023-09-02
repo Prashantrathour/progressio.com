@@ -1,1 +1,241 @@
-<p>home works!</p>
+<body class="bg-gradient-to-b from-blue-400 to-purple-500 text-white">
+  <div class="container mx-auto flex flex-col lg:flex-row p-8">
+    <!-- Left side with Lorem Ipsum text -->
+
+    <div class="w-full lg:w-1/2 p-4 flex flex-col justify-center gap-5">
+      <h1 class="text-4xl font-bold mb-4">
+        Progresio: Unlocking Knowledge, Empowering Dreams
+      </h1>
+      <p class="text-lg">
+        Where Students Thrive. Expert Instructors. Engaging Courses. Your Online
+        Learning Adventure Starts Here. Join Us Today!
+      </p>
+      <div class="lg:w-1/2 p-2 mx-auto mt-6">
+        <a routerLink="/create_student" routerLinkActive="active">
+        <button
+          type="button"
+          class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:scale-110 transition-transform duration-300"
+        >
+          Lets Start
+          <svg
+            class="w-3.5 h-3.5 ml-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </button></a>
+      </div>
+    </div>
+    <!-- Right side with the image -->
+    <div class="w-full lg:w-1/2">
+      <img
+        src="https://www.elegantthemes.com/layouts/wp-content/uploads/2017/12/coding-isometric-01.png"
+        alt="Coding Image"
+        class="w-full h-auto"
+      />
+    </div>
+  </div>
+</body>
+<div class="w-full">
+  <div class="flex flex-wrap">
+    <!-- Left Column -->
+    <div class="w-full md:w-1/3 p-4">
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden m-2">
+        <!-- Course Information -->
+        <div class="p-6">
+          <h4 class="text-4xl text-blue-700">100's of Courses</h4>
+          <h3 class="text-2xl text-gray-800 mt-4">
+            Master the Art of Web Development
+          </h3>
+          <p class="mt-4 text-lg text-gray-600">
+            Dive into the world of programming and web development with our
+            comprehensive courses. Learn coding languages, front-end and
+            back-end development, and design stunning websites from scratch.
+            Elevate your skills and career in the digital realm.
+          </p>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="px-6 pb-6">
+          <button
+            class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full w-full"
+          >
+            View all Courses
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div
+      class="w-full md:w-2/3 p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center"
+    >
+      <div *ngFor="let topic of topics">
+        <!-- Topic Card -->
+        <div class="bg-white rounded-lg p-4 shadow-md h-48 items-center flex">
+          <div class="flex items-center space-x-4">
+            <!-- Icon Image -->
+            <img
+              src="{{ topic.url }}"
+              alt="Web Development Icon"
+              width="64"
+              height="64"
+            />
+
+            <!-- Text Content -->
+            <div>
+              <h4 class="text-lg font-semibold">{{ topic.topic }}</h4>
+              <p class="text-gray-600 max-h-36 text-ellipsis">
+                {{ topic.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="m-4">
+<div class="w-full mt-10">
+  <div class="flex flex-wrap justify-center">
+    <!-- Left Column -->
+    <div class="w-full md:w-1/2 p-4">
+      <div class="bg-white overflow-hidden m-2">
+        <!-- Course Information -->
+        <div class="p-6">
+          <img
+            src="https://www.elegantthemes.com/layouts/wp-content/uploads/2017/12/coding-iconArtboard-19-copy-8.jpg"
+            alt="Web Development Icon"
+            width="64"
+            height="64"
+          />
+          <h4 class="text-4xl text-blue-700">Learning by Doing</h4>
+          <h3 class="text-2xl text-gray-800 mt-4">
+            Hands-On Learning Experience
+          </h3>
+          <p class="mt-4 text-lg text-gray-600">
+            At our institution, we believe in the power of 'Learning by Doing.'
+            Our courses are designed to provide you with practical, hands-on
+            experience that goes beyond theory.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="w-full md:w-1/2 p-4 flex justify-center">
+      <img
+        src="https://www.elegantthemes.com/layouts/wp-content/uploads/2017/12/coding-isometric-03.png"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+<div class="w-full mt-10">
+  <div class="flex flex-wrap justify-center flex-row-reverse">
+    <!-- Left Column -->
+    <div class="w-full md:w-1/2 p-4">
+      <div class="bg-white overflow-hidden m-2">
+        <!-- Course Information -->
+        <div class="p-6">
+          <img
+            src="https://www.elegantthemes.com/layouts/wp-content/uploads/2017/12/coding-iconArtboard-19-copy-9.jpg"
+            alt="Web Development Icon"
+            width="64"
+            height="64"
+          />
+          <h4 class="text-4xl text-blue-700">Build Your Portfolio</h4>
+          <h3 class="text-2xl text-gray-800 mt-4">
+            Build Your Impressive Portfolio
+          </h3>
+          <p class="mt-4 text-lg text-gray-600">
+            At our institution, we're not just about learning; we're about helping you build a remarkable portfolio. Through our courses, you'll create tangible projects that showcase your skills and creativity. Whether you're an aspiring designer, developer, or artist, we'll guide you in crafting a portfolio that sets you apart in your chosen field. Start building your path to success today.
+          </p>
+        </div>
+
+       
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="w-full md:w-1/2 p-4 flex justify-center max-h-300px max-w-max">
+      <img
+        src="https://www.elegantthemes.com/layouts/wp-content/uploads/2017/12/coding-isometric-04.png"
+        alt=""
+        width="100%"
+      />
+    </div>
+  </div>
+</div>
+<div class="w-full mt-10">
+  <div class="flex flex-wrap justify-center">
+    <!-- Left Column -->
+    <div class="w-full md:w-1/2 p-4">
+      <div class="bg-white overflow-hidden m-2">
+        <!-- Course Information -->
+        <div class="p-6">
+          <img
+            src="https://www.elegantthemes.com/layouts/wp-content/uploads/2017/12/coding-iconArtboard-19-copy-10.jpg"
+            alt="Web Development Icon"
+            width="64"
+            height="64"
+          />
+          <h4 class="text-4xl text-blue-700">Achieve your goals</h4>
+          <h3 class="text-2xl text-gray-800 mt-4">
+            Realize Your Goals
+          </h3>
+          <p class="mt-4 text-lg text-gray-600">
+            Our mission is to empower you to achieve your goals. Whether you dream of a successful career, personal growth, or making a difference, our courses provide the knowledge and support to help you get there. With dedication and our guidance, you can turn your aspirations into achievements. Join us on the path to success and start realizing your goals today.
+
+
+
+
+
+
+          </p>
+        </div>
+
+       
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="w-full md:w-1/2 p-4 flex justify-center max-h-300px max-w-max">
+      <img
+        src="https://www.elegantthemes.com/layouts/wp-content/uploads/2017/12/coding-isometric-05.png"
+        alt=""
+        width="100%"
+      />
+    </div>
+  </div>
+</div>
+</div>
+<div class="w-full flex flex-col md:flex-row bg-gray-200 p-4 items-center">
+    <!-- Left Section with Heading -->
+    <div class="w-full md:w-1/2 p-4 flex flex-auto flex-col md:flex-row md:items-center gap-10">
+      <h2 class="text-4xl font-semibold text-blue-700">Ready to get started?</h2>
+      <h2 class="text-2xl font-semibold text-gray-600">Get in Touch or Create Account</h2>
+    </div>
+  
+    <!-- Right Section with Button and "or" -->
+    <div class="w-full md:w-1/2 p-4 flex items-center justify-center space-x-4">
+      <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full">
+        Contact Me
+      </button>
+      <span class="text-gray-600 font-semibold hidden md:inline">or</span>
+      <button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full">
+        Create Account
+      </button>
+    </div>
+  </div>
+
