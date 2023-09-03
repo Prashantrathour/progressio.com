@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'instructor_login.Instructor'
 
 # Application definition
 
@@ -48,7 +49,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'user',
-    'corsheaders'
+    'corsheaders',
+    'instructor_login'
 ]
 
 MIDDLEWARE = [

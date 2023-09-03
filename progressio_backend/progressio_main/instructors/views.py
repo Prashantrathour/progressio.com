@@ -5,6 +5,28 @@ import json
 from django.http import JsonResponse
 from .models import Instructor
 
+from django.shortcuts import get_object_or_404
+from .models import Instructor
+from courses.models import Course
+from assignments.models import Assignment
+from announcements.models import Announcement
+from django.http import JsonResponse
+
+def instructor_details(request, instructor_id):
+    instructor = get_object_or_404(Instructor, pk=instructor_id)
+    courses = Course.objects.filter(instructor=instructor)
+    assignments = Assignment.objects.filter(course__in=courses)
+    announcements = Announcement.objects.filter(course__in=courses)
+
+    instructor_data = {
+        'id': instructor.id,
+        'name': instructor.name,
+        'courses': [{'id': course.id, 'name': course.course_name} for course in courses],
+        'assignments': [{'id': assignment.id, 'title': assignment.title} for assignment in assignments],
+        'announcements': [{'id': announcement.id, 'title': announcement.title,'description':announcement.description} for announcement in announcements],
+    }
+
+    return JsonResponse({'instructor': instructor_data})
 
 def list_instructors(request):
     instructors = Instructor.objects.all()

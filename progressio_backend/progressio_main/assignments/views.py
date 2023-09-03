@@ -8,7 +8,7 @@ from .models import Assignment
 def list_assignments(request):
     if request.method == 'GET':
         assignments = Assignment.objects.all()
-        data = [{'id': assignment.id, 'title': assignment.title, 'description': assignment.description,
+        data = [{'id': assignment.id,'name': assignment.name, 'title': assignment.title, 'description': assignment.description,
                  'due_date': assignment.due_date, 'course_id': assignment.course_id} for assignment in assignments]
         return JsonResponse({'assignments': data})
 
@@ -17,7 +17,7 @@ def list_assignments(request):
 def create_assignment(request):
     if request.method == 'POST':
         data = request.POST
-        assignment = Assignment.objects.create(title=data['title'], description=data['description'],
+        assignment = Assignment.objects.create(title=data['title'],name=data['name'], description=data['description'],
                                                due_date=data['due_date'], course_id=data['course_id'])
         return JsonResponse({'message': 'Assignment created successfully'})
 
