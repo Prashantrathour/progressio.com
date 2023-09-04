@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-    username:string=''
+    email:string=''
     password:string=''
     errormessage=''
     loginsuccess=false
@@ -18,7 +18,8 @@ export class LoginComponent {
     async login(){
       try {
         this.loading=true
-        const response=await this.loginservice.login({username:this.username,password:this.password})
+        const response=await this.loginservice.login({email:this.email,password:this.password})
+        localStorage.removeItem('instructor_token');
         localStorage.setItem('token',response.data.token)
         this.loginsuccess=true
         this.loading=false

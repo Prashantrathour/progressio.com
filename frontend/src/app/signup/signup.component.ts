@@ -44,11 +44,11 @@ export class SignupComponent implements OnDestroy {
 
       // Make the HTTP request using Axios and handle the response
       const response = await this.registerservice.register({
-        username: this.username,
+       
         password: this.password,
         email: this.email,
-        first_name: this.firstname,
-        last_name: this.lastname
+        firstName: this.firstname,
+        lastName: this.lastname
       });
 
       // Handle successful registration here

@@ -6,7 +6,7 @@ import axios,{AxiosResponse} from "axios"
 export class SignupService {
 
   constructor() { }
-  url = 'http://127.0.0.1:8000/user/register/';
+  url = 'https://carsbackend-ikuq.onrender.com/users/register';
 
   async register(data: any): Promise<AxiosResponse> {
     try {

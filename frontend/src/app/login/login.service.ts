@@ -7,7 +7,7 @@ import axios, { AxiosResponse } from 'axios'; // Import AxiosResponse for typing
 export class LoginService {
 
   constructor() { }
-  url = 'http://127.0.0.1:8000/user/login/';
+  url = 'https://carsbackend-ikuq.onrender.com/users/login';
 
   async login(data: Data): Promise<AxiosResponse> {
     try {
@@ -20,6 +20,6 @@ export class LoginService {
 }
 
 export interface Data {
-  username: string;
+  email: string;
   password: string;
 }

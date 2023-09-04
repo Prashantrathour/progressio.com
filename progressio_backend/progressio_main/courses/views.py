@@ -9,6 +9,7 @@ from instructors.models import Instructor  # Import the Instructor model from yo
 def list_courses(request):
     courses = Course.objects.all()
     course_list = [{
+        "id": course.id,
         "course_code": course.course_code,
         "course_name": course.course_name,
         "department": course.department.name,  # Assuming your Department model has a 'name' field

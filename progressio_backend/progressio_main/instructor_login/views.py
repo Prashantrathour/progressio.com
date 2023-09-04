@@ -19,7 +19,7 @@ def register_instructor(request):
                 gender=data['gender'],
                 # Add more fields as needed
             )
-            return JsonResponse({'message': 'Instructor registered successfully'})
+            return JsonResponse({'message': 'user registered successfully'})
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
     else:
@@ -38,11 +38,11 @@ def login_instructor(request):
                 instructor = Instructor.objects.get(email=email)
                 if check_password(password, instructor.password):
                     token, created = Token.objects.get_or_create(user=instructor)
-                    return JsonResponse({'message': 'Instructor logged in successfully', 'token': token.key})
+                    return JsonResponse({'message': ' logged in successfully', 'token': token.key})
                 else:
                     return JsonResponse({'error': 'Invalid password'}, status=401)
             except Instructor.DoesNotExist:
-                return JsonResponse({'error': 'Instructor not found'}, status=404)
+                return JsonResponse({'error': 'user not found'}, status=404)
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
     else:

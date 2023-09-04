@@ -1,0 +1,6 @@
+/* Define the color for links within the description */
+.assignment a {
+    color: blue !important; /* Change to your desired color */
+    text-decoration: underline; /* Underline the links */
+  }
+  
