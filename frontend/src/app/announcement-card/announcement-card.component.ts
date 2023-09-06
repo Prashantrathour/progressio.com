@@ -29,7 +29,16 @@ newAnnouncement:any={}
       console.log(error)
     }
   }
-
+async deleteannouncement(id:any){
+  try {
+    const res=await this.announcementservice.deleteannouncement(id)
+    alert(res.data.message)
+    this.onload()
+  } catch (error) {
+    console.log(error)
+    alert("error")
+  }
+}
   async createAnnouncement(){
     try {
       console.log(this.newAnnouncement)

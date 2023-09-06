@@ -1,5 +1,6 @@
 import { Component, HostListener,OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { AuthService } from '../auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private router:Router) {}
   ngOnInit(): void {
    
   }
@@ -21,6 +22,11 @@ export class NavbarComponent implements OnInit {
   }
  logout():void{
    this.authService.logout();
+   this.router.navigate(['/login'])
+ }
+ logoutInstructor():void{
+   this.authService.logout_instructor();
+   this.router.navigate(['/login_instructor'])
  }
 
   isScrolled: boolean = false;

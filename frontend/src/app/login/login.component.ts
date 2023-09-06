@@ -16,11 +16,15 @@ export class LoginComponent {
     loading=false
     constructor(private loginservice:LoginService , private router:Router){}
     async login(){
+      console.log("login")
       try {
         this.loading=true
         const response=await this.loginservice.login({email:this.email,password:this.password})
         localStorage.removeItem('instructor_token');
+        console.log(response.data)
         localStorage.setItem('token',response.data.token)
+        localStorage.setItem('user',response.data.user)
+        localStorage.setItem('userID',response.data.userID)
         this.loginsuccess=true
         this.loading=false
         setTimeout(() => {

@@ -1,0 +1,6 @@
+/* In your CSS or stylesheet */
+.active {
+    color: blue; /* Change this to your desired active tab color */
+    border-color: blue; /* Change this to your desired active tab border color */
+    /* Add any other styling you want for the active tab */
+}

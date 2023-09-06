@@ -6,6 +6,8 @@ def student_view(request):
     students = Student.objects.all()
     student_data = [{
                      'name':student.name,
+                     'user':student.loginuser,
+                     'userID':student.userID,
                      'id':student.id,
                      'student_id':student.student_id,
                      'gender':student.gender,
@@ -30,6 +32,8 @@ def create_student(request):
                 gender=data['gender'],
                 date_of_birth=data['date_of_birth'],
                 major=data['major'],
+                loginuser=data['user'],
+                userID=data['userID'],
                 email=data['email'],
                 contact_number=data['contact_number']
             )

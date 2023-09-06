@@ -14,4 +14,7 @@ export class AnnouncementService {
   async createannouncement(data:any):Promise<AxiosPromise>{
     return await axios.post('http://127.0.0.1:8000/announcement/create/',data)
   }
+  async deleteannouncement(id:any):Promise<AxiosPromise>{
+    return await axios.delete('http://127.0.0.1:8000/announcement/delete/'+id+'/')
+  }
 }

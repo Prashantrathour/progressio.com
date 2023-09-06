@@ -13,6 +13,8 @@ import { StudentCardComponent } from './student-card/student-card.component';
 import { CoursesCardComponent } from './courses-card/courses-card.component';
 import { AssignmentCardComponent } from './assignment-card/assignment-card.component';
 import { AnnouncementCardComponent } from './announcement-card/announcement-card.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -34,6 +36,14 @@ const routes: Routes = [
       { path: '', redirectTo: 'students', pathMatch: 'full' }, // Default route
     ],
   },
+  {path:"student_deshboard",component:StudentDashboardComponent},
+  {
+    path:'student_deshboard',
+    children:[
+      {path:'profile',component:ProfileComponent},
+    ]
+  },
+  {path:"student_deshboard",component:StudentDashboardComponent},
 ];
 
 @NgModule({

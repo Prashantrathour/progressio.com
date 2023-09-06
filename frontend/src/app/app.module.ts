@@ -19,7 +19,9 @@ import { AssignmentCardComponent } from './assignment-card/assignment-card.compo
 import { AnnouncementCardComponent } from './announcement-card/announcement-card.component';
 import { CoursesCardComponent } from './courses-card/courses-card.component';
 import { DepartmentComponent } from './department/department.component';
-
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @NgModule({
   declarations: [
@@ -38,14 +40,17 @@ import { DepartmentComponent } from './department/department.component';
     AssignmentCardComponent,
     AnnouncementCardComponent,
     CoursesCardComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    StudentDashboardComponent,
+    ProfileComponent
   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],

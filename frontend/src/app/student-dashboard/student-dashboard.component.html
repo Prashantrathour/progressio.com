@@ -1,0 +1,297 @@
+<!-- student-dashboard.component.html -->
+<div class="border-b border-gray-200 dark:border-gray-700">
+    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+       
+        <li class="mr-2">
+            <a  (click)="showTab('dashboard')" [class.active]="activeTab === 'dashboard'"
+               class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                <svg class="w-4 h-4 mr-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" 
+              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+                    <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
+                    <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
+                 </svg>Dashboard
+            </a>
+        </li>
+        <li class="mr-2">
+            <a  (click)="showTab('assignment')" [class.active]="activeTab === 'assignment'"
+               class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                <svg class="w-4 h-4 mr-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300"
+                    
+                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17v1a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2M6 1v4a1 1 0 0 1-1 1H1m13.14.772 2.745 2.746M18.1 5.612a2.086 2.086 0 0 1 0 2.953l-6.65 6.646-3.693.739.739-3.692 6.646-6.646a2.087 2.087 0 0 1 2.958 0Z"/>
+                      </svg>
+                Assignment
+            </a>
+        </li>
+        <li class="mr-2">
+            <a  (click)="showTab('announcement')" [class.active]="activeTab === 'announcement'"
+               class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                <svg class="w-4 h-4 mr-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M15.133 10.632v-1.8a5.407 5.407 0 0 0-4.154-5.262.955.955 0 0 0 .021-.106V1.1a1 1 0 0 0-2 0v2.364a.944.944 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C4.867 13.018 3 13.614 3 14.807 3 15.4 3 16 3.538 16h12.924C17 16 17 15.4 17 14.807c0-1.193-1.867-1.789-1.867-4.175Zm-13.267-.8a1 1 0 0 1-1-1 9.424 9.424 0 0 1 2.517-6.39A1.001 1.001 0 1 1 4.854 3.8a7.431 7.431 0 0 0-1.988 5.037 1 1 0 0 1-1 .995Zm16.268 0a1 1 0 0 1-1-1A7.431 7.431 0 0 0 15.146 3.8a1 1 0 0 1 1.471-1.354 9.425 9.425 0 0 1 2.517 6.391 1 1 0 0 1-1 .995ZM6.823 17a3.453 3.453 0 0 0 6.354 0H6.823Z"/>
+                  </svg>
+                Announcement
+            </a>
+        </li>
+        <li class="mr-2">
+            <a  (click)="showTab('course')" [class.active]="activeTab === 'course'"
+               class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                <svg class="w-4 h-4 mr-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300"
+               aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1M1 9h14M2 5h12a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
+                  </svg>Course
+            </a>
+        </li>
+        <li>
+            <a  (click)="showTab('lecture')" [class.active]="activeTab === 'lecture'"
+               class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                <svg class="w-4 h-4 mr-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300"
+                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
+                </svg>Lecture
+            </a>
+        </li>
+         <li class="mr-2">
+            <a  (click)="showTab('profile')" [class.active]="activeTab === 'profile'"
+               class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                <svg class="w-4 h-4 mr-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300"
+                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
+                </svg>Profile
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Content for each tab -->
+<div [@fadeInOut]="activeTab" class="p-4">
+    <ng-container *ngIf="activeTab === 'profile'">
+        <div class="bg-white dark:bg-gray-800 border rounded-lg shadow-md p-4 m-8">
+          <div class="flex flex-col md:flex-row justify-between items-start">
+            <div class="text-left">
+              <div class="font-semibold text-lg mb-2">{{ student.name }}</div>
+              <p class="text-gray-600 dark:text-gray-400">Login User: {{ student.user }}</p>
+              <p class="text-gray-600 dark:text-gray-400">User ID: {{ student.userID }}</p>
+              <p class="text-gray-600 dark:text-gray-400">Student ID: {{ student.student_id }}</p>
+              <p class="text-gray-600 dark:text-gray-400">Gender: {{ student.gender }}</p>
+              <p class="text-gray-600 dark:text-gray-400">Date of Birth: {{ student.date_of_birth }}</p>
+              <p class="text-gray-600 dark:text-gray-400">Major: {{ student.major }}</p>
+              <p class="text-gray-600 dark:text-gray-400">Email: {{ student.email }}</p>
+              <p class="text-gray-600 dark:text-gray-400">Contact Number: {{ student.contact_number }}</p>
+            </div>
+            <div class="mt-4 md:mt-0">
+              <h2 class="text-xl font-semibold mb-4">Enrolled Courses</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <ng-container *ngIf="enrollments['12']">
+                    <div class="bg-blue-100 p-4 rounded-lg shadow-md">
+                      <h3 class="font-semibold text-lg mb-2">{{ enrollments[student.id].student }}</h3>
+                      <p class="text-gray-600 dark:text-gray-400">
+                        Enrolled Courses:
+                        <ul class="list-disc ml-6">
+                          <li *ngFor="let course of enrollments[student.id].courses">{{ course }}</li>
+                        </ul>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Enrollment Time: {{ enrollments['12'].enrollment_time[0] | date }}
+                          </p>
+                    </div>
+                  </ng-container>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 flex justify-center">
+            <button
+              data-modal-target="authentication-modal"
+              data-modal-toggle="authentication-modal"
+              class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              type="button"
+            >
+              Enroll in More Courses
+            </button>
+            <!-- Modal toggle -->
+           
+      
+            <!-- Main modal -->
+            <div
+              id="authentication-modal"
+              tabindex="-1"
+              aria-hidden="true"
+              class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+            >
+              <div class="relative w-full max-w-md max-h-full">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  <button
+                    type="button"
+                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-hide="authentication-modal"
+                  >
+                    <svg
+                      class="w-3 h-3"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 14 14"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                      ></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                  </button>
+                  <div class="px-6 py-6 lg:px-8">
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Enroll in a Course</h3>
+                    <form (ngSubmit)="postenrollment(student.id)" class="space-y-6" action="#">
+                      <div>
+                        <label
+                          for="course"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                          Select a Course
+                        </label>
+                        <select
+                          name="course"
+                          id="course"
+                          [(ngModel)]="course_id"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                          required
+                        >
+                       
+                        <ng-container *ngFor="let course of courses">
+                          <option  value={{course.id}}>{{course.course_name}}</option>
+                          </ng-container>
+                        </select>
+                      </div>
+                      <button
+                        type="submit"
+                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      >
+                        Enroll
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      
+    
+    <ng-container *ngIf="activeTab === 'dashboard'">
+        <!-- Dashboard content goes here -->
+        <p>Dashboard Content</p>
+    </ng-container>
+    <ng-container *ngIf="activeTab === 'assignment'">
+        <h2 class="text-2xl font-semibold">Submit Assignment</h2>
+       <ng-container *ngFor="let assignment of assignments">
+        <div class="container mx-auto mt-5">
+            <div class="mt-4">
+              <!-- Assignment Details -->
+              <div class="mb-4">
+                <h3 class="text-lg font-medium">Assignment Details</h3>
+                <div class="flex justify-evenly ">
+                <p>Assignment Name:{{assignment.title}}</p>
+                <p>Due Date:{{assignment.due_date}} </p>
+            </div>
+               
+              </div>
+          
+              <!-- Submission Status -->
+              <div class="mb-4">
+                <h3 class="text-lg font-medium">Submission Status</h3>
+                <div [ngClass]="{'text-green-600': assignment.isSubmitted, 'text-red-600': !assignment.isSubmitted}">
+                  {{ assignment.isSubmitted ? 'Submitted' : 'Not Submitted' }}
+                </div>
+              </div>
+          
+              <!-- Assignment Submission Form -->
+              <div *ngIf="!assignment.isSubmitted">
+                <h3 class="text-lg font-medium">Submit Assignment</h3>
+                <form (ngSubmit)="submitAssignment(assignment)">
+                  <div class="mb-4">
+                    <label for="githubLink" class="block font-medium">GitHub Link</label>
+                    <input
+                      type="text"
+                      id="githubLink"
+                      name="githubLink"
+                      [(ngModel)]="githubLink"
+                      class="w-full px-3 py-2 border rounded-lg"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label for="deployLink" class="block font-medium">Deployment Link (Optional)</label>
+                    <input
+                      type="text"
+                      id="deployLink"
+                      name="deployLink"
+                      [(ngModel)]="deployLink"
+                      class="w-full px-3 py-2 border rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <button
+                      type="submit"
+                      class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                    >
+                      Submit Assignment
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div *ngIf="assignment.isSubmitted"><h3 class="text-lg font-medium">{{assignment.submitted_at}}</h3></div>
+            </div>
+          </div>
+          </ng-container> 
+    </ng-container>
+    <ng-container *ngIf="activeTab === 'announcement'">
+        <div
+    class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700"
+  >
+    <ng-container *ngFor="let announcement of announcement">
+      <!-- announcement-details.component.html -->
+
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-6">
+          <h2 class="text-2xl font-semibold text-gray-800">
+            {{ announcement.title }}
+          </h2>
+          <p class="text-gray-600 text-sm mt-2">
+            {{ announcement.description }}
+          </p>
+          <div class="mt-4 flex justify-between items-center">
+            <div class="text-xs text-gray-500">
+              <p>
+                <strong>Publish Date:</strong> {{ announcement.publish_date }}
+              </p>
+              <p><strong>Department:</strong> {{ announcement.department }}</p>
+              <p><strong>Course:</strong> {{ announcement.course }}</p>
+            </div>
+            <div class="flex">
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+              >
+                View Details
+              </button>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+    </ng-container>
+    <ng-container *ngIf="activeTab === 'course'">
+        <!-- Course content goes here -->
+        <p>Course Content</p>
+    </ng-container>
+    <ng-container *ngIf="activeTab === 'lecture'">
+        <!-- Lecture content goes here -->
+        <p>Lecture Content</p>
+    </ng-container>
+</div>

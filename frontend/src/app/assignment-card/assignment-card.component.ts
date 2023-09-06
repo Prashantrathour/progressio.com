@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AssignmentService } from './assignment.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CourseService } from '../courses-card/course.service';
+import { DepartmentService } from '../department/department.service';
+import { AnnouncementService } from '../announcement-card/announcement.service';
 
 @Component({
   selector: 'app-assignment-card',
@@ -12,7 +14,11 @@ export class AssignmentCardComponent implements OnInit {
   assignments: any[] = [];
   courses: any[] = [];
   modalOpen = false;
+  asignments:any[]=[]
+  departments:any[]=[]
 
+  announcements:any[]=[]
+  
   assignmentData = {
     title: '',
     instructor:'',
@@ -21,9 +27,11 @@ export class AssignmentCardComponent implements OnInit {
     course_id: ''
   };
   constructor(
+    private department:DepartmentService,
     private assignmentService: AssignmentService,
     private courseService: CourseService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+   private announcementservice:AnnouncementService
   ) { }
 
   ngOnInit(): void {
@@ -43,7 +51,10 @@ export class AssignmentCardComponent implements OnInit {
 
    async createAssignment() {
   
-      const res=await this.assignmentService.createAssignment(this.assignmentData)
+      const res=await this.assignmentService.createAssignment({...this.assignmentData,isSubmitted: false,
+        githublink: '',
+        deployelink: '',
+        showSubmissionForm: false})
       console.log(res)
         this.loadAssignments();
     
@@ -76,6 +87,8 @@ export class AssignmentCardComponent implements OnInit {
       console.error('Error loading assignments:', error);
     }
   }
+
+
 
   async deleteAssignment(id: any) {
     // Implement delete functionality here

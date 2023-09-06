@@ -9,7 +9,7 @@
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
        <ul class="space-y-2 font-medium">
           <li>
-             <a routerLink="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+             <a routerLink="/instructor_deshboard"  class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                    <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
                    <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
@@ -117,20 +117,40 @@
 
  <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-<div id="students" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <div *ngFor="let student of students" class="flex flex-col items-center justify-center rounded-lg shadow-md bg-white dark:bg-gray-800">
-        <div class="max-w-7xl max-h-96">
-      <img src="https://www.bing.com/th?id=OIP.vwEvC0935NyTy4JoNqNItQHaFK&w=180&h=185&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Student" class="w-20 h-20 object-cover rounded-t-lg">
-      <div class="p-4">
-        <div class="font-semibold text-lg mb-2">{{ student.name }}</div>
-        <p class="text-gray-600 dark:text-gray-400">Student ID: {{ student.student_id }}</p>
-        <p class="text-gray-600 dark:text-gray-400">Major: {{ student.major }}</p>
-        <p class="text-gray-600 dark:text-gray-400">Gender: {{ student.gender }}</p>
-        <p class="text-gray-600 dark:text-gray-400">Date of Birth: {{ student.date_of_birth }}</p>
-        <p class="text-gray-600 dark:text-gray-400">Email: {{ student.email }}</p>
-        <p class="text-gray-600 dark:text-gray-400">Contact Number: {{ student.contact_number }}</p>
-      </div></div>
-    </div>
-  </div>
+      <div id="students" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+         <div *ngFor="let student of students" class="bg-white dark:bg-gray-800 border rounded-lg shadow-md p-4">
+           <img
+             src="https://www.bing.com/th?id=OIP.vwEvC0935NyTy4JoNqNItQHaFK&w=180&h=185&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+             alt="Student"
+             class="w-20 h-20 object-cover rounded-full mx-auto mb-4"
+           />
+           <div class="text-left">
+             <div class="font-semibold text-lg mb-2">{{ student.name }}</div>
+             <p class="text-gray-600 dark:text-gray-400">Student ID: {{ student.student_id }}</p>
+             <p class="text-gray-600 dark:text-gray-400">Major: {{ student.major }}</p>
+             <p class="text-gray-600 dark:text-gray-400">Gender: {{ student.gender }}</p>
+             <p class="text-gray-600 dark:text-gray-400">Date of Birth: {{ student.date_of_birth }}</p>
+             <p class="text-gray-600 dark:text-gray-400">Email: {{ student.email }}</p>
+             <p class="text-gray-600 dark:text-gray-400">Contact Number: {{ student.contact_number }}</p>
+             <div class="mt-4 flex justify-center space-x-4">
+               <button
+               (click)="deletestudent(student.id)"
+                 class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md focus:outline-none focus:ring focus:ring-red-200"
+                 
+               >
+                 Delete
+               </button>
+               <button
+                 class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+                 
+               >
+             Details
+               </button>
+             </div>
+           </div>
+         </div>
+       </div>
+       
+       
     </div>
   </div>
