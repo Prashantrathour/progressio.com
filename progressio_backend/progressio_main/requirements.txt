@@ -7,7 +7,7 @@ django-environ==0.11.2
 djangorestframework==3.14.0
 filelock==3.12.2
 gunicorn==21.2.0
-mysqlclient==2.2.0
+mysqlclient==2.1.1
 packaging==23.1
 platformdirs==3.10.0
 psycopg2-binary==2.9.7
