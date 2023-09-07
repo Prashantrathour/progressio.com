@@ -15,10 +15,16 @@ import { AssignmentCardComponent } from './assignment-card/assignment-card.compo
 import { AnnouncementCardComponent } from './announcement-card/announcement-card.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AbouteComponent } from './aboute/aboute.component';
+import { ContactComponent } from './contact/contact.component';
+import { ServicesComponent } from './services/services.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"login",component:LoginComponent},
+  {path:"services",component:ServicesComponent},
+  {path:"about",component:AbouteComponent},
+  {path:"contact",component:ContactComponent},
   {path:"register",component:SignupComponent},
   {path:"create_student",component:StudentsComponent},
   {path:"create_instructor",component:InstructorComponent},

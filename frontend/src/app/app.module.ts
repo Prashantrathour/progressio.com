@@ -21,7 +21,10 @@ import { CoursesCardComponent } from './courses-card/courses-card.component';
 import { DepartmentComponent } from './department/department.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AbouteComponent } from './aboute/aboute.component';
+import { ContactComponent } from './contact/contact.component';
+import { ServicesComponent } from './services/services.component'; 
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CoursesCardComponent,
     DepartmentComponent,
     StudentDashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    AbouteComponent,
+    ContactComponent,
+    ServicesComponent
   
   ],
   imports: [

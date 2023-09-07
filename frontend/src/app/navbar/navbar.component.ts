@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+user=""
   constructor(private authService: AuthService,private router:Router) {}
   ngOnInit(): void {
-   
+   this.user=localStorage.getItem("user")||"user"
   }
 
   isAuthenticated(): boolean {

@@ -47,3 +47,9 @@ def login_instructor(request):
             return JsonResponse({'error': str(e)}, status=400)
     else:
         return JsonResponse({'error': 'Only POST requests are allowed for login'}, status=405)
+def homepage(request):
+    response_data = {
+        'message': 'Welcome to Progressio! For more details, click here:',
+        'link': 'https://github.com/Prashantrathour/progressio.com'
+    }
+    return JsonResponse(response_data)

@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import environ
+env=environ.Env()
+environ.Env.read_env()
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ns0#_eh0%w4jh2$2lpm2!(%v80+tx)noz*7*%nkjvyc-qw)quy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'instructor_login.Instructor'
 
@@ -124,17 +126,20 @@ WSGI_APPLICATION = 'progressio_main.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+import dj_database_url
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "data",
-        "USER": "prashant",
-        "PASSWORD": "Prashant123@",
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
-    }
+   'default': dj_database_url.parse(env("DATA_BASE_URL"))
 }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "data",
+#         "USER": "prashant",
+#         "PASSWORD": "Prashant123@",
+#         "HOST": "127.0.0.1",
+#         "PORT": "3306",
+#     }
+# }
 
 
 # Password validation
