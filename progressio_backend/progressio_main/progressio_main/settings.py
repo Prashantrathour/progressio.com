@@ -25,8 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ns0#_eh0%w4jh2$2lpm2!(%v80+tx)noz*7*%nkjvyc-qw)quy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+DEBUG = True
+CORS_ALLOW_ALL_ORIGINS = True
 ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'instructor_login.Instructor'
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'user',
+    
     'corsheaders',
     'instructor_login'
 ]
@@ -64,10 +65,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.common.CommonMiddleware'
+   
 ]
 CORS_ALLOWED_ORIGINS = [
 "https://domain.com",
+"https://progressiodeploye.onrender.com",
 "https://api.domain.com",
 "http://localhost:8080",
 "http://127.0.0.1:8000",
