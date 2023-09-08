@@ -77,8 +77,8 @@ export class StudentDashboardComponent implements OnInit {
       alert("assignment done")
       this.isSubmitted = true;
       this.loadassignment()
-    } catch (error) {
-      alert("error")
+    } catch (error:any) {
+      alert(error.response.data.error||"error")
     }
     // Implement the logic to submit the assignment, e.g., send data to a server
     // For now, we'll just update the submission status
@@ -92,6 +92,7 @@ export class StudentDashboardComponent implements OnInit {
       console.log(error)
       console.log(error)
       alert(error.response.data.error)
+      this.onloadenroll()
     }
   }
   async onload() {
@@ -132,6 +133,7 @@ export class StudentDashboardComponent implements OnInit {
     try {
       const res = await this.studentdeshboardservice.getenrollments()
       const enrollments = res.data.enrollments
+      console.log(enrollments)
       this.enrollments = enrollments
 
     } catch (error) {

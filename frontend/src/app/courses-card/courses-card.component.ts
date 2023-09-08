@@ -36,7 +36,8 @@ alert("course created")
 this.onload()
     // Reset the form
     this.coursedata = {};
-  } catch (error) {
+  } catch (error:any) {
+    alert(error.response.data.error||"error")
     console.log(error)
     
   }

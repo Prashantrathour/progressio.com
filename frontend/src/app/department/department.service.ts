@@ -9,6 +9,6 @@ export class DepartmentService {
   constructor() { }
 
   async getdepartment():Promise<AxiosPromise> {
-    return await axios.get('http://127.0.0.1:8000/department')
+    return await axios.get('https://progressiodeploye.onrender.com/department/')
   }
 }

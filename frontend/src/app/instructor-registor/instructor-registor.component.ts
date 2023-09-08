@@ -54,12 +54,13 @@ export class InstructorRegistorComponent implements OnDestroy {
         this.router.navigate(['/instructor_deshboard']);
         
       }, 1000);
-    } catch (error) {
+    } catch (error:any) {
       // Handle registration error here
       this.loginsuccess = false;
       this.loading = false;
       this.loginerror = true;
       console.error(error);
+      this.errormessage=error.response.data.error
     }
   }
 }

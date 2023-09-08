@@ -6,7 +6,7 @@ import axios, { AxiosResponse } from 'axios';
 })
 export class InstructorLoginService {
   constructor() { }
-  url = 'http://127.0.0.1:8000/instructor_login';
+  url = 'https://progressiodeploye.onrender.com/instructor_login';
 
   async login(data: Data): Promise<AxiosResponse> {
     try {

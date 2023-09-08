@@ -50,13 +50,17 @@ export class AssignmentCardComponent implements OnInit {
 
 
    async createAssignment() {
-  
-      const res=await this.assignmentService.createAssignment({...this.assignmentData,isSubmitted: false,
-        githublink: '',
-        deployelink: '',
-        showSubmissionForm: false})
-      console.log(res)
-        this.loadAssignments();
+  try {
+    
+    const res=await this.assignmentService.createAssignment({...this.assignmentData,isSubmitted: false,
+      githublink: '',
+      deployelink: '',
+      showSubmissionForm: false})
+    console.log(res)
+      this.loadAssignments();
+  } catch (error:any) {
+    alert(error.response.data.error||"error")
+  }
     
   }
   async loadAssignments(): Promise<void> {
@@ -117,7 +121,8 @@ export class AssignmentCardComponent implements OnInit {
        this.loadAssignments();
        console.log(res)
 
-    } catch (error) {
+    } catch (error:any) {
+      alert(error.response.data.error||"error")
       console.log(error)
     }
 

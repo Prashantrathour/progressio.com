@@ -8,9 +8,9 @@ export class InstructorService {
 
   constructor() { }
   async getinstructor():Promise<AxiosResponse>{
-    return await axios.get('http://127.0.0.1:8000/instructor')
+    return await axios.get('https://progressiodeploye.onrender.com/instructor/')
   }
   async createinstructor(data:any):Promise<AxiosResponse>{
-    return axios.post('http://127.0.0.1:8000/instructor/create/',data)
+    return axios.post('https://progressiodeploye.onrender.com/instructor/create/',data)
   }
 }

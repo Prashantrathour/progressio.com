@@ -83,7 +83,7 @@
             <div class="mt-4 md:mt-0">
               <h2 class="text-xl font-semibold mb-4">Enrolled Courses</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <ng-container *ngIf="enrollments['12']">
+                <ng-container *ngIf="enrollments[student.id]">
                     <div class="bg-blue-100 p-4 rounded-lg shadow-md">
                       <h3 class="font-semibold text-lg mb-2">{{ enrollments[student.id].student }}</h3>
                       <p class="text-gray-600 dark:text-gray-400">
@@ -92,7 +92,7 @@
                           <li *ngFor="let course of enrollments[student.id].courses">{{ course }}</li>
                         </ul>
                         <p class="text-gray-600 dark:text-gray-400">
-                            Enrollment Time: {{ enrollments['12'].enrollment_time[0] | date }}
+                            Enrollment Time: {{ enrollments[student.id].enrollment_time[0] | date }}
                           </p>
                     </div>
                   </ng-container>

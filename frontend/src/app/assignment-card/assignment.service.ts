@@ -5,7 +5,7 @@ import axios, { AxiosResponse } from 'axios';
   providedIn: 'root'
 })
 export class AssignmentService {
-url='http://127.0.0.1:8000/assignments/'
+url='https://progressiodeploye.onrender.com/assignments/'
   constructor() { }
   async getAssignment():Promise<AxiosResponse>{
     return await axios.get(this.url)
@@ -16,12 +16,12 @@ url='http://127.0.0.1:8000/assignments/'
   }
   async createAssignment(data:any):Promise<AxiosResponse>{
    console.log(data)
-    return await axios.post("http://127.0.0.1:8000/assignments/create/",data)
+    return await axios.post("https://progressiodeploye.onrender.com/assignments/create/",data)
   }
 
   async submitAssignment(data:any):Promise<AxiosResponse>{
    
-    return await axios.post("http://127.0.0.1:8000/assignments/assignment-submissions/",data)
+    return await axios.post("https://progressiodeploye.onrender.com/assignments/assignment-submissions/",data)
   }
   async deleteAssignment(id:any):Promise<AxiosResponse>{
     

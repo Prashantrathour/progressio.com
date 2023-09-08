@@ -7,7 +7,7 @@ import axios, { AxiosResponse } from 'axios';
 export class InstructorService {
 
   constructor() { }
-  url = 'http://127.0.0.1:8000/instructor_register';
+  url = 'https://progressiodeploye.onrender.com/instructor_register';
 
   async register(data: any): Promise<AxiosResponse> {
     try {

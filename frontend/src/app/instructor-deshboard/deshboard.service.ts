@@ -18,7 +18,7 @@ export class DeshboardService {
 
   async getstudents(): Promise<AxiosResponse>  {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/students');
+      const response = await axios.get('https://progressiodeploye.onrender.com/students/');
       return response;
     } catch (error) {
       throw error;

@@ -9,10 +9,10 @@ export class StudentDeshboardService {
   constructor() { }
 
   async getenrollments():Promise<AxiosPromise>{
-    return await axios.get("http://127.0.0.1:8000/enrollments")
+    return await axios.get("https://progressiodeploye.onrender.com/enrollments/")
   }
   async createenrollments(data:any):Promise<AxiosPromise>{
     console.log(data)
-    return await axios.post("http://127.0.0.1:8000/enrollments/create/",data)
+    return await axios.post("https://progressiodeploye.onrender.com/enrollments/create/",data)
   }
 }

@@ -8,7 +8,7 @@ export class StudentsService {
 
   constructor() { }
 
-  url = 'http://127.0.0.1:8000/students/create_student/';
+  url = 'https://progressiodeploye.onrender.com/students/create_student/';
 
   async create_student(data: any): Promise<AxiosResponse> {
     console.log(data)
