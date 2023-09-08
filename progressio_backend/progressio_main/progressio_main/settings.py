@@ -40,14 +40,15 @@ CORS_ALLOW_HEADERS = [
 # Define the allowed origins for your application
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200/",
+    "https://progressiolms.netlify.app/",
         # Add the URL of your Angular app
     "https://progressiodeploye.onrender.com",  # Add other allowed origins as needed
 ]
 
 # You can also use regular expressions for allowed origins if necessary
-# CORS_ALLOWED_ORIGIN_REGEXES = [
-#     r"^https://\w+\.domain\.com$",
-# ]
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://\w+\.domain\.com$",
+]
 
 ALLOWED_HOSTS = ['*']
 
