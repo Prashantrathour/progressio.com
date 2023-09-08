@@ -39,7 +39,8 @@ CORS_ALLOW_HEADERS = [
 
 # Define the allowed origins for your application
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",  # Add the URL of your Angular app
+    "http://localhost:4200/",
+        # Add the URL of your Angular app
     "https://progressiodeploye.onrender.com",  # Add other allowed origins as needed
 ]
 
@@ -79,7 +80,15 @@ INSTALLED_APPS = [
     'corsheaders',
     'instructor_login'
 ]
-
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
 # ...
 
 # Database
