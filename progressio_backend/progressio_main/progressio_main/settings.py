@@ -52,6 +52,9 @@ ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'instructor_login.Instructor'
 
+# Define the ROOT_URLCONF setting
+ROOT_URLCONF = 'progressio_main.urls'  # Replace with the actual URL configuration for your project
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -75,16 +78,6 @@ INSTALLED_APPS = [
     
     'corsheaders',
     'instructor_login'
-]
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 # ...
