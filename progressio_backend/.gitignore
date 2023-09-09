@@ -1,0 +1,43 @@
+# Ignore database files
+*.sqlite3
+
+# Ignore log files
+*.log
+
+# Ignore environment-specific settings (e.g., for local development)
+*.env
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore media files (user-uploaded content)
+media/
+
+# Ignore static files (collected static files)
+static/
+
+# Ignore virtual environment
+myenv/
+.env
+
+# Ignore IDE-specific files and directories (customize as needed)
+.idea/
+.vscode/
+*.iml
+
+# Ignore secret keys and sensitive information (customize as needed)
+*.secret
+*.key
+
+# Ignore migration files if using Django migrations (optional)
+# Comment this out if you want to track migration files
+# /<app_name>/migrations/
+
+# Ignore Python bytecode cache files
+__pycache__/
+
+# Ignore system and hidden files
+.DS_Store
+Thumbs.db
