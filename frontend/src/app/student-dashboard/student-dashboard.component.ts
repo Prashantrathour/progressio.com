@@ -8,6 +8,7 @@ import { CourseService } from '../courses-card/course.service';
 import { StudentDeshboardService } from './student-deshboard.service';
 import { AnnouncementService } from '../announcement-card/announcement.service';
 import { AssignmentService } from '../assignment-card/assignment.service';
+
 @Component({
   selector: 'app-student-dashboard',
   templateUrl: './student-dashboard.component.html',
@@ -18,128 +19,147 @@ import { AssignmentService } from '../assignment-card/assignment.service';
         style({ opacity: 0 }),
         animate('300ms', style({ opacity: 1 })),
       ]),
-      transition(':leave', [
-        animate('300ms', style({ opacity: 0 })),
-      ]),
+      transition(':leave', [animate('300ms', style({ opacity: 0 }))]),
     ]),
   ],
 })
 export class StudentDashboardComponent implements OnInit {
-  student: any = {}
-  course_id: any = {}
-  courses: any = []
-  enrollments: any = []
-  announcement: any = []
-  user = ""
-  assignments: any[] = []
+  student: any = {};
+  course_id: any = {};
+  courses: any = [];
+  enrollments: any = [];
+  announcement: any = [];
+  user = '';
+  assignments: any[] = [];
   assignmentName: string = 'Sample Assignment';
   dueDate: string = '2023-09-30'; // Replace with the actual due date
   isSubmitted: boolean = false;
   githubLink: string = '';
   deployLink: string = '';
-  activeTab: string = 'profile'; // Set the default active tab to 'profile'
-  constructor(private studentservice: DeshboardService, private course: CourseService, private studentdeshboardservice: StudentDeshboardService, private announcements: AnnouncementService, private assignmentservice: AssignmentService) { }
+  activeTab: string = 'dashboard'; // Set the default active tab to 'profile'
+  isLoading: boolean = false; // Add isLoading property
+
+  constructor(
+    private studentservice: DeshboardService,
+    private course: CourseService,
+    private studentdeshboardservice: StudentDeshboardService,
+    private announcements: AnnouncementService,
+    private assignmentservice: AssignmentService
+  ) {}
 
   ngOnInit(): void {
-    this.user = localStorage.getItem('user') || ''
-    this.onload()
-    this.onloadcourse()
-    this.onloadenroll()
-    this.onloadannouncement()
-    this.checkSubmissionStatus();
-    this.loadassignment()
+    this.user = localStorage.getItem('user') || '';
+    this.loadData();
   }
-  async loadassignment() {
+
+  async loadData() {
+    this.isLoading = true; // Set isLoading to true when data loading starts
+
     try {
-      const res = await this.assignmentservice.getAssignment()
-      this.assignments = res.data.assignments
-   console.log(this.assignments)
+      await this.loadStudent();
+      await this.loadCourses();
+      await this.loadEnrollments();
+      await this.loadAnnouncements();
+      await this.loadAssignments();
+      this.checkSubmissionStatus();
     } catch (error) {
-      console.log(error)
+      console.error(error);
+      // Handle error as needed
+    } finally {
+      this.isLoading = false; // Set isLoading to false when data loading is complete
     }
   }
+
+  async loadStudent() {
+    try {
+      const res = await this.studentservice.getstudents();
+      const students = res.data.students;
+      this.student = students.find((i: any) => i.user == this.user);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async loadCourses() {
+    try {
+      const res = await this.course.getcourse();
+      this.courses = res.data.courses;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async loadEnrollments() {
+    try {
+      const res = await this.studentdeshboardservice.getenrollments();
+      this.enrollments = res.data.enrollments;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async loadAnnouncements() {
+    try {
+      const res = await this.announcements.getannouncement();
+      this.announcement = res.data.announcements;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async loadAssignments() {
+    try {
+      const res = await this.assignmentservice.getAssignment();
+      this.assignments = res.data.assignments;
+      this.checkSubmissionStatus();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   checkSubmissionStatus() {
     // Replace this with your logic to check if the assignment is submitted
     // For now, let's assume it's submitted if githubLink is not empty
     this.isSubmitted = !!this.githubLink;
   }
-  proceed() {
 
-  }
-  async submitAssignment(assignment:any) {
-    // isSubmitted: false,
-    // githubLink: '',
-    // deployLink: '',
-    // showSubmissionForm: false
-    try {
-      const res = await this.assignmentservice.updateAssignment({...assignment,isSubmitted: true, githublink: this.githubLink, deployelink: this.deployLink,showSubmissionForm: true },assignment.id)
+  proceed() {}
 
-      alert("assignment done")
-      this.isSubmitted = true;
-      this.loadassignment()
-    } catch (error:any) {
-      alert(error.response.data.error||"error")
-    }
+  async submitAssignment(assignment: any) {
     // Implement the logic to submit the assignment, e.g., send data to a server
     // For now, we'll just update the submission status
-  }
-  async postenrollment(id: any) {
     try {
-      const res = await this.studentdeshboardservice.createenrollments({ student_id: id, course_id: this.course_id })
-      console.log(res.data.message)
-      alert(res.data.message)
+      const res = await this.assignmentservice.updateAssignment({
+        ...assignment,
+        isSubmitted: true,
+        githublink: this.githubLink,
+        deployelink: this.deployLink,
+        showSubmissionForm: true,
+      }, assignment.id);
+
+      alert('Assignment done');
+      this.isSubmitted = true;
+      this.loadAssignments();
     } catch (error: any) {
-      console.log(error)
-      console.log(error)
-      alert(error.response.data.error)
-      this.onloadenroll()
+      alert(error.response.data.error || 'Error');
     }
   }
-  async onload() {
+
+  async postEnrollment(id: any) {
     try {
-      const res = await this.studentservice.getstudents()
-      const students = res.data.students
-      this.student = students.find((i: any) => i.user == this.user)
-      console.log(students)
-
-    } catch (error) {
-
-      console.log(error)
+      const res = await this.studentdeshboardservice.createenrollments({
+        student_id: id,
+        course_id: this.course_id,
+      });
+      console.log(res.data.message);
+      alert(res.data.message);
+    } catch (error: any) {
+      console.error(error);
+      alert(error.response.data.error);
+      this.loadEnrollments();
     }
   }
-  async onloadannouncement() {
-    try {
-      const res = await this.announcements.getannouncement()
-      this.announcement = res.data.announcements
 
-
-
-    } catch (error) {
-
-      console.log(error)
-    }
-  }
-  async onloadcourse() {
-    try {
-      const res = await this.course.getcourse()
-      const courses = res.data.courses
-      this.courses = courses
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  async onloadenroll() {
-    try {
-      const res = await this.studentdeshboardservice.getenrollments()
-      const enrollments = res.data.enrollments
-      console.log(enrollments)
-      this.enrollments = enrollments
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
   showTab(tabName: string): void {
     this.activeTab = tabName;
   }
